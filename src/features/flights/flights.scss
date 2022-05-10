@@ -1,0 +1,68 @@
+@import '../../styles/variables.scss';
+
+.flights {
+  &__tabs {
+  }
+  &__table {
+  }
+}
+
+.tabs {
+  display: flex;
+  height: 50px;
+  background: $main-color;
+  border-radius: 50px 50px 0 0;
+
+  &__item {
+    flex: 1 1 auto;
+    background: transparent;
+    border: none;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #fff;
+    cursor: pointer;
+    transition: border-radius 0.5s;
+
+    &_active {
+      background: #fff;
+      color: $main-color;
+      border-radius: 50px 50px 0 0;
+    }
+  }
+}
+
+.table {
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-weight: 300;
+
+  &__info {
+  }
+
+  &__list {
+  }
+
+  &__item {
+    &:nth-child(even) {
+      background: #fff;
+    }
+  }
+
+  &__item-info {
+    padding: 10px;
+    font-weight: 400;
+  }
+}
+
+.info {
+  background: #fff;
+  color: #9ea0a2;
+
+  &__item {
+    padding: 10px;
+    font-weight: 700;
+  }
+}
