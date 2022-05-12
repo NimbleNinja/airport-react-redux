@@ -5,7 +5,9 @@ import Info from './Info';
 const FlightsTable = () => (
   <table className="flights__table table">
     <Info />
-    <Outlet />
+    <tbody className="table__list">
+      <Outlet />
+    </tbody>
   </table>
 );
 

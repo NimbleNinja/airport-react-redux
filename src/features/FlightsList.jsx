@@ -3,7 +3,7 @@ import Flight from './Flight';
 import NoFlights from './NoFlights';
 
 const FlightsList = ({ flights }) => (
-  <tbody className="table__list">
+  <>
     {flights.length === 0 ? (
       <NoFlights />
     ) : (
@@ -13,7 +13,7 @@ const FlightsList = ({ flights }) => (
         return <Flight key={key} {...flight} />;
       })
     )}
-  </tbody>
+  </>
 );
 
 export default FlightsList;

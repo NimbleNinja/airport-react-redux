@@ -13,16 +13,17 @@
   background: $main-color;
   border-radius: 50px 50px 0 0;
 
-  &__item {
+  &__link {
     flex: 1;
     background: $main-color;
     border-radius: 50px 50px 0 0;
-    border: none;
     font-size: 16px;
+    line-height: 50px;
     font-weight: 700;
     text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
     color: #fff;
-    cursor: pointer;
     transition: border-radius 0.5s;
 
     &:hover {
@@ -36,17 +37,17 @@
     }
   }
 
-  &__link {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    text-decoration: none;
-  }
+  //&__link {
+  //  display: flex;
+  //  justify-content: center;
+  //  align-items: center;
+  //  height: 100%;
+  //  text-decoration: none;
+  //}
 }
 
 .table {
-  table-layout: fixed;
+  table-layout: auto;
   width: 100%;
   border-collapse: collapse;
   text-align: left;
@@ -58,15 +59,57 @@
   &__list {
   }
 
-  &__item {
+  &__row {
     &:nth-child(even) {
       background: #fff;
     }
+
+    //&:hover {
+    //  box-shadow: 0 5px 10px rgb(0 0 0 / 20%);
+    //}
   }
 
-  &__item-info {
+  & th {
     padding: 10px;
     font-weight: 400;
+  }
+
+  &__row-item-terminal {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__row-item-airline {
+    display: flex;
+    align-items: center;
+  }
+
+  &__item-terminal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border: 2px solid;
+    border-radius: 50%;
+    font-size: 20px;
+    font-weight: 700;
+
+    &_a {
+      border-color: #63c745;
+      color: #63c745;
+    }
+
+    &_d {
+      border-color: $main-color;
+      color: $main-color;
+    }
+  }
+
+  &__item-logo {
+    width: 80px;
+    height: 40px;
+    margin-right: 5px;
   }
 }
 

@@ -1,11 +1,13 @@
 import React, { useEffect } from 'react';
-import { NavLink, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import './flights.scss';
 import { useDispatch } from 'react-redux';
 import DepartureFlightsList from './DepartureFlightsList';
 import ArrivalFlightsList from './ArrivalFlightsList';
 import FlightsTable from './FlightsTable';
 import { fetchFlights } from './flights.slice';
+import NoFlights from './NoFlights';
+import TabLink from './TabLink';
 
 const Flights = () => {
   const dispatch = useDispatch();
@@ -17,19 +19,12 @@ const Flights = () => {
   return (
     <main className="page__flights flights">
       <div className="flights__tabs tabs">
-        <button className="tabs__item">
-          <NavLink className="tabs__link" to="/departures">
-            departures
-          </NavLink>
-        </button>
-        <button className="tabs__item">
-          <NavLink className="tabs__link" to="/arrivals">
-            arrivals
-          </NavLink>
-        </button>
+        <TabLink tabName="departures" />
+        <TabLink tabName="arrivals" />
       </div>
       <Routes>
         <Route path="/" element={<FlightsTable />}>
+          {/* <Route index element={<NoFlights />} /> */}
           <Route path="departures" element={<DepartureFlightsList />} />
           <Route path="arrivals" element={<ArrivalFlightsList />} />
         </Route>
@@ -38,5 +33,3 @@ const Flights = () => {
   );
 };
 export default Flights;
-
-// tabs__item_active

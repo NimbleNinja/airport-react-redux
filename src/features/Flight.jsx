@@ -1,20 +1,21 @@
 import React from 'react';
+import formatData from './dateTools';
 
-const Flight = ({ terminal, code, time, destination, status, airlineName, logo }) => (
-  <tr className="table__item">
-    <th className="table__item-info">{terminal}</th>
-    <th className="table__item-info">{time}</th>
-    <th className="table__item-info">{destination}</th>
-    <th className="table__item-info">{status}</th>
-    <th className="table__item-info">
-      <img
-        style={{ width: '40px', height: '40px' }}
-        src={`https://api.iev.aero/${logo}`}
-        alt="logo"
-      />
-      {airlineName}
+const Flight = ({ terminal, code, time, destination, status, airlineName, logoSrc }) => (
+  <tr className="table__row">
+    <th className="table__row-item-terminal">
+      <span className={`table__item-terminal table__item-terminal_${terminal.toLowerCase()}`}>
+        {terminal}
+      </span>
     </th>
-    <th className="table__item-info">{code}</th>
+    <th className="table__item">{formatData(time)}</th>
+    <th className="table__item">{destination}</th>
+    <th className="table__item">{status}</th>
+    <th className="table__row-item-airline">
+      <img className="table__item-logo" src={`https://api.iev.aero/${logoSrc}`} alt="logo" />
+      <span>{airlineName}</span>
+    </th>
+    <th className="table__item">{code}</th>
   </tr>
 );
 

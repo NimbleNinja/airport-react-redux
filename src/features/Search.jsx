@@ -3,11 +3,14 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import './search.scss';
 
 const Search = () => {
-  const [value, setValue] = useState('');
-
   const qs = require('qs');
-  const ulr = `/departures?${qs.stringify({ value })}`;
+  const { search } = useLocation();
+  const initValue = qs.parse(search).value;
 
+  const [value, setValue] = useState(initValue || '');
+
+  const params = qs.stringify({ date: '12-05-2022', value });
+  const ulr = `/departures?${params}`;
   const navigate = useNavigate();
 
   const searchHandler = () => {
