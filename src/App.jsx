@@ -1,13 +1,20 @@
 import React from 'react';
-import Flights from './features/flights/Flights';
-import Search from './features/search/Search';
+import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
+import Flights from './features/Flights';
+import Search from './features/Search';
+import store from './store';
 
 const App = () => (
-  <div className="page">
-    <h1 className="page__title">Search flight</h1>
-    <Search />
-    <Flights />
-  </div>
+  <Provider store={store}>
+    <BrowserRouter>
+      <div className="page">
+        <h1 className="page__title">Search flight</h1>
+        <Search />
+        <Flights />
+      </div>
+    </BrowserRouter>
+  </Provider>
 );
 
 export default App;
