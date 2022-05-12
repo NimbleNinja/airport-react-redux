@@ -1,9 +1,9 @@
 import { createSelector } from '@reduxjs/toolkit';
 
-export const departureFlightsSelector = state => state.flights.departures;
-export const arrivalFlightsSelector = state => state.flights.arrivals;
+export const departuresSelector = state => state.flights.departures;
+export const arrivalSelector = state => state.flights.arrivals;
 
-export const departureList = createSelector(departureFlightsSelector, items =>
+export const departuresList = createSelector(departuresSelector, items =>
   items.map(item => ({
     id: item.ID,
     terminal: item.term,
@@ -16,7 +16,7 @@ export const departureList = createSelector(departureFlightsSelector, items =>
   })),
 );
 
-export const arrivalList = createSelector(arrivalFlightsSelector, items =>
+export const arrivalsList = createSelector(arrivalSelector, items =>
   items.map(item => ({
     id: item.ID,
     terminal: item.term,

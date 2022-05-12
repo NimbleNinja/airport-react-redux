@@ -10,7 +10,7 @@ const DepartureFlightsList = () => {
   const qs = require('qs');
   const filter = qs.parse(search).value;
 
-  const departureList = useSelector(flightsSelectors.departureList);
+  const departureList = useSelector(flightsSelectors.departuresList);
 
   const filteredList = filter
     ? departureList.filter(flight => flight.code.includes(filter))

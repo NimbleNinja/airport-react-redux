@@ -2,12 +2,10 @@ import React, { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import './flights.scss';
 import { useDispatch } from 'react-redux';
-import DepartureFlightsList from './DepartureFlightsList';
-import ArrivalFlightsList from './ArrivalFlightsList';
 import FlightsTable from './FlightsTable';
 import { fetchFlights } from './flights.slice';
-import NoFlights from './NoFlights';
 import TabLink from './TabLink';
+import FlightsList from './FlightsList';
 
 const Flights = () => {
   const dispatch = useDispatch();
@@ -24,9 +22,7 @@ const Flights = () => {
       </div>
       <Routes>
         <Route path="/" element={<FlightsTable />}>
-          {/* <Route index element={<NoFlights />} /> */}
-          <Route path="departures" element={<DepartureFlightsList />} />
-          <Route path="arrivals" element={<ArrivalFlightsList />} />
+          <Route path=":listName" element={<FlightsList />} />
         </Route>
       </Routes>
     </main>
