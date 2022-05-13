@@ -1,5 +1,5 @@
 import React from 'react';
-import formatData from './dateTools';
+import formatData from '../../../tools/dateTools';
 
 const Flight = ({ terminal, code, time, destination, status, airlineName, logoSrc }) => (
   <tr className="table__row">

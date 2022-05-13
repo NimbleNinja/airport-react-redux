@@ -3,7 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import './flights.scss';
 import { useDispatch } from 'react-redux';
 import FlightsTable from './FlightsTable';
-import { fetchFlights } from './flights.slice';
+import { fetchFlights } from '../flights.slice';
 import TabLink from './TabLink';
 import FlightsList from './FlightsList';
 
@@ -15,7 +15,7 @@ const Flights = () => {
   }, []);
 
   return (
-    <main className="page__flights flights">
+    <div className="page__flights flights">
       <div className="flights__tabs tabs">
         <TabLink tabName="departures" />
         <TabLink tabName="arrivals" />
@@ -25,7 +25,7 @@ const Flights = () => {
           <Route path=":listName" element={<FlightsList />} />
         </Route>
       </Routes>
-    </main>
+    </div>
   );
 };
 export default Flights;

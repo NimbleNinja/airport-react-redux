@@ -3,7 +3,7 @@ import { useLocation, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import Flight from './Flight';
 import NoFlights from './NoFlights';
-import * as flightsSelectors from './flights.selectors';
+import * as flightsSelectors from '../flights.selectors';
 
 const FlightsList = () => {
   const { search } = useLocation();
@@ -11,9 +11,6 @@ const FlightsList = () => {
 
   const qs = require('qs');
   const filter = qs.parse(search).value;
-
-  // const testList = useSelector(() => flightsSelectors.testSelector(, 'departures'));
-  // console.log('testList: ', testList);
 
   const currentSelector =
     listName === 'departures' ? flightsSelectors.departuresList : flightsSelectors.arrivalsList;

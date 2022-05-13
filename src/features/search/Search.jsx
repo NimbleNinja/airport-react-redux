@@ -23,6 +23,7 @@ const Search = () => {
 
   return (
     <div className="page__search search">
+      <span className="search__loop"></span>
       <input
         value={value}
         onChange={e => setValue(e.target.value)}

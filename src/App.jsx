@@ -1,8 +1,8 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
-import Flights from './features/Flights';
-import Search from './features/Search';
+import Flights from './features/flights/components/Flights';
+import Search from './features/search/Search';
 import store from './store';
 
 const App = () => (

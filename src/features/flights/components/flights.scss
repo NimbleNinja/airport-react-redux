@@ -1,4 +1,4 @@
-@import '../styles/variables.scss';
+@import '../../../styles/variables.scss';
 
 .flights {
   &__tabs {
@@ -36,14 +36,6 @@
       border-radius: 50px 50px 0 0;
     }
   }
-
-  //&__link {
-  //  display: flex;
-  //  justify-content: center;
-  //  align-items: center;
-  //  height: 100%;
-  //  text-decoration: none;
-  //}
 }
 
 .table {
@@ -60,13 +52,17 @@
   }
 
   &__row {
+    position: relative;
+    background: $second-color;
+
     &:nth-child(even) {
       background: #fff;
     }
 
-    //&:hover {
-    //  box-shadow: 0 5px 10px rgb(0 0 0 / 20%);
-    //}
+    &:hover {
+      z-index: 1;
+      box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+    }
   }
 
   & th {
@@ -75,8 +71,7 @@
   }
 
   &__row-item-terminal {
-    display: flex;
-    justify-content: center;
+    text-align: center;
   }
 
   &__row-item-airline {
@@ -85,14 +80,13 @@
   }
 
   &__item-terminal {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: inline-block;
     width: 40px;
     height: 40px;
     border: 2px solid;
     border-radius: 50%;
     font-size: 20px;
+    line-height: 35px;
     font-weight: 700;
 
     &_a {
