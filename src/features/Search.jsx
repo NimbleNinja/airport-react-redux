@@ -14,6 +14,10 @@ const Search = () => {
   const navigate = useNavigate();
 
   const searchHandler = () => {
+    if (!value) {
+      navigate('/departures');
+      return;
+    }
     navigate(ulr);
   };
 

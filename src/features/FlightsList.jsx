@@ -12,6 +12,9 @@ const FlightsList = () => {
   const qs = require('qs');
   const filter = qs.parse(search).value;
 
+  // const testList = useSelector(() => flightsSelectors.testSelector(, 'departures'));
+  // console.log('testList: ', testList);
+
   const currentSelector =
     listName === 'departures' ? flightsSelectors.departuresList : flightsSelectors.arrivalsList;
   const flights = useSelector(currentSelector);
@@ -25,7 +28,6 @@ const FlightsList = () => {
       ) : (
         filteredList.map(flight => {
           const key = Math.round(Math.random() * 100000);
-
           return <Flight key={key} {...flight} />;
         })
       )}

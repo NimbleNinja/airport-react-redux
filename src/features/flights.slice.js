@@ -1,3 +1,4 @@
+/* eslint no-param-reassign: "error" */
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 const url = 'https://api.iev.aero/api/flights/10-02-2020';
@@ -8,8 +9,6 @@ export const fetchFlights = createAsyncThunk('flights/fetchFlights', async () =>
 });
 
 const initialState = {
-  currentTab: '',
-  status: '',
   departures: [],
   arrivals: [],
 };
