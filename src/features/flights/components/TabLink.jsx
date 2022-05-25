@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { NavLink, useLocation } from 'react-router-dom';
-import { fetchFlights } from '../flights.slice';
+import { fetchArrivals, fetchDepartures } from '../flights.slice';
 
 const TabLink = ({ tabName }) => {
   const { search } = useLocation();
@@ -10,7 +10,8 @@ const TabLink = ({ tabName }) => {
   const dispatch = useDispatch();
 
   const clickHandler = () => {
-    dispatch(fetchFlights());
+    dispatch(fetchArrivals());
+    dispatch(fetchDepartures());
   };
 
   return (
