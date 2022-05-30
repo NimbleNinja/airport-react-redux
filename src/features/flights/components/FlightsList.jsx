@@ -13,9 +13,7 @@ const FlightsList = () => {
   const filter = qs.parse(search).value;
 
   const currentSelector =
-    listName === 'departures'
-      ? flightsSelectors.departuresSelector
-      : flightsSelectors.arrivalSelector;
+    listName === 'departures' ? flightsSelectors.departuresList : flightsSelectors.arrivalsList;
   const flights = useSelector(currentSelector);
 
   const filteredList = filter ? flights.filter(flight => flight.code.includes(filter)) : flights;

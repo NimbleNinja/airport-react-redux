@@ -3,7 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import './flights.scss';
 import { useDispatch } from 'react-redux';
 import FlightsTable from './FlightsTable';
-import { fetchArrivals, fetchDepartures } from '../flights.slice';
+import { fetchFlights } from '../flights.slice';
 import TabLink from './TabLink';
 import FlightsList from './FlightsList';
 
@@ -11,8 +11,7 @@ const Flights = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchArrivals());
-    dispatch(fetchDepartures());
+    dispatch(fetchFlights());
   }, []);
 
   return (
