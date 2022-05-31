@@ -1,12 +1,6 @@
 /* eslint no-param-reassign: "error" */
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-
-const url = 'https://api.iev.aero/api/flights/10-02-2020';
-
-export const fetchFlights = createAsyncThunk('flights/fetchFlights', async () => {
-  const response = await fetch(url);
-  return response.json();
-});
+import { createSlice } from '@reduxjs/toolkit';
+import { fetchFlights } from './gateway';
 
 const initialState = {
   departures: [],
@@ -26,4 +20,5 @@ const flightsSlice = createSlice({
   },
 });
 
+export const { setInputDate } = flightsSlice.actions;
 export default flightsSlice.reducer;

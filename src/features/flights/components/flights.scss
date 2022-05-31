@@ -3,6 +3,8 @@
 .flights {
   &__tabs {
   }
+  &__dates {
+  }
   &__table {
   }
 }
@@ -34,6 +36,47 @@
       background: #fff;
       color: $main-color;
       border-radius: 50px 50px 0 0;
+    }
+  }
+}
+
+.dates {
+  display: flex;
+  background: #fff;
+  padding: 5px 10px;
+
+  &__choise {
+    margin-right: 40px;
+    outline: none;
+    border: none;
+    padding: 0;
+
+    &::-webkit-datetime-edit {
+      display: none;
+    }
+
+    &::-webkit-calendar-picker-indicator {
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  &__day {
+    padding: 0 15px;
+    border-bottom: 3px solid #b8b9b9;
+    color: #b8b9b9;
+    font-weight: 700;
+    text-align: center;
+    cursor: pointer;
+
+    &_active {
+      color: $main-color;
+      border-color: $main-color;
+    }
+
+    &-number {
+      font-size: 14px;
+      font-weight: normal;
     }
   }
 }

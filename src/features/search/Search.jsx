@@ -2,36 +2,30 @@ import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import './search.scss';
 
+const qs = require('qs');
+
 const Search = () => {
-  const qs = require('qs');
   const { search } = useLocation();
-  const initValue = qs.parse(search).value;
 
-  const [value, setValue] = useState(initValue || '');
+  const { value, date } = qs.parse(search.replace('?', ''));
 
-  const params = qs.stringify({ date: '12-05-2022', value });
+  const [searchValue, setValue] = useState(value || '');
+
+  const params = qs.stringify(searchValue ? { date, value: searchValue } : { date });
   const ulr = `/departures?${params}`;
   const navigate = useNavigate();
-
-  const searchHandler = () => {
-    if (!value) {
-      navigate('/departures');
-      return;
-    }
-    navigate(ulr);
-  };
 
   return (
     <div className="page__search search">
       <span className="search__loop"></span>
       <input
-        value={value}
+        value={searchValue}
         onChange={e => setValue(e.target.value)}
         placeholder="Airline, destination or flight #"
         className="search__input"
         type="text"
       />
-      <button onClick={searchHandler} className="search__btn">
+      <button onClick={() => navigate(ulr)} className="search__btn">
         search
       </button>
     </div>

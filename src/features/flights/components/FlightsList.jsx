@@ -1,22 +1,30 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import moment from 'moment';
 import Flight from './Flight';
 import NoFlights from './NoFlights';
 import * as flightsSelectors from '../flights.selectors';
+import { fetchFlights } from '../gateway';
+
+const qs = require('qs');
 
 const FlightsList = () => {
   const { search } = useLocation();
   const { listName } = useParams();
 
-  const qs = require('qs');
-  const filter = qs.parse(search).value;
+  const { date, value } = qs.parse(search.replace('?', ''));
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchFlights(date || moment().format('DD-MM-YYYY')));
+  }, [listName]);
 
   const currentSelector =
     listName === 'departures' ? flightsSelectors.departuresList : flightsSelectors.arrivalsList;
   const flights = useSelector(currentSelector);
 
-  const filteredList = filter ? flights.filter(flight => flight.code.includes(filter)) : flights;
+  const filteredList = value ? flights.filter(flight => flight.code.includes(value)) : flights;
 
   return (
     <>
