@@ -3,7 +3,7 @@ import moment from 'moment';
 import { useDispatch } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { fetchFlights } from '../flights.gateway';
-import Day from './Day';
+import DayToChoose from './DayToChoose';
 
 const qs = require('qs');
 
@@ -37,7 +37,7 @@ const DatePicker = () => {
         onInput={e => inputDateHandler(moment(e.target.value))}
       />
       {[yesterday, today, nextday].map(dayToChoose => (
-        <Day
+        <DayToChoose
           key={dayToChoose.format('dddd')}
           dayHandler={inputDateHandler}
           selectedDay={day}
