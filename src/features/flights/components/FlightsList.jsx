@@ -3,9 +3,8 @@ import { useLocation, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import moment from 'moment';
 import Flight from './Flight';
-import NoFlights from './NoFlights';
 import * as flightsSelectors from '../flights.selectors';
-import { fetchFlights } from '../gateway';
+import { fetchFlights } from '../flights.gateway';
 
 const qs = require('qs');
 
@@ -29,7 +28,11 @@ const FlightsList = () => {
   return (
     <>
       {filteredList.length === 0 ? (
-        <NoFlights />
+        <tr className="table__item">
+          <td className="table__item-info" colSpan={6}>
+            No flights...
+          </td>
+        </tr>
       ) : (
         filteredList.map(flight => {
           const key = Math.round(Math.random() * 100000);

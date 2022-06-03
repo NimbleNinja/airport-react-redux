@@ -4,7 +4,7 @@ import './flights.scss';
 import FlightsTable from './FlightsTable';
 import TabLink from './TabLink';
 import FlightsList from './FlightsList';
-import Dates from './Dates';
+import DatePicker from './DatePicker';
 
 const Flights = () => (
   <div className="page__flights flights">
@@ -12,7 +12,7 @@ const Flights = () => (
       <TabLink tabName="departures" />
       <TabLink tabName="arrivals" />
     </div>
-    <Dates />
+    <DatePicker />
     <Routes>
       <Route path="/" element={<FlightsTable />}>
         <Route path=":listName" element={<FlightsList />} />

@@ -1,6 +1,6 @@
 /* eslint no-param-reassign: "error" */
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchFlights } from './gateway';
+import { fetchFlights } from './flights.gateway';
 
 const initialState = {
   departures: [],
